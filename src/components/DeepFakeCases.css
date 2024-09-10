@@ -1,0 +1,250 @@
+.deepfake-cases-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 50px 20px;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  width: 100%;
+  margin: 0;
+  gap: 50px;
+  box-sizing: border-box;
+  border-radius: 0;
+  overflow: hidden;
+  flex-wrap: nowrap; /* Keep content beside image */
+}
+
+.image-section {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeInLeft 1.5s ease-out;
+  max-width: 100%; /* Ensure image fits within its container */
+}
+
+.deepfake-image {
+  width: 100%;
+  max-width: 500px; /* Limit the maximum width of the image */
+  border-radius: 10px;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.6s ease-in-out, box-shadow 0.6s ease-in-out;
+}
+
+.deepfake-image:hover {
+  transform: scale(1.1) rotate(3deg);
+  box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.text-section {
+  flex: 1.2;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  animation: fadeInRight 1.5s ease-out;
+}
+
+.case-item {
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+  padding-left: 40px;
+  transition: all 0.4s ease-in-out;
+}
+
+.case-item h3 {
+  font-size: 24px;
+  font-family: "Poppins", sans-serif;
+  color: #ffffff;
+  margin-bottom: 10px;
+  transition: color 0.4s ease-in-out;
+}
+
+.case-item p {
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.6;
+  color: #d3d3d3;
+  transition: color 0.4s ease-in-out;
+}
+
+.case-item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 0;
+  width: 3px;
+  background-color: #00b3b3;
+  transition: height 0.4s ease-in-out, transform 0.4s ease-in-out;
+}
+
+.case-item:hover::before {
+  height: 100%;
+  transform: translateY(-50%);
+}
+
+.case-item:hover h3 {
+  color: #00b3b3;
+}
+
+.case-item:hover p {
+  color: #ffffff;
+}
+
+.case-item:hover {
+  padding-left: 50px;
+}
+
+.case-item::after {
+  content: "\00bb";
+  font-size: 36px;
+  color: #00b3b3;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateX(-50px) translateY(-50%);
+  opacity: 0;
+  transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
+}
+
+.case-item:hover::after {
+  transform: translateX(-25px) translateY(-50%);
+  opacity: 1;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .deepfake-cases-section {
+    flex-direction: row; /* Keep row layout */
+    padding: 30px 10px;
+    gap: 20px;
+  }
+
+  .image-section {
+    flex: 1;
+    justify-content: flex-start; /* Align image to the start */
+  }
+
+  .deepfake-image {
+    max-width: 400px; /* Scale down the image */
+  }
+
+  .text-section {
+    flex: 1.2;
+    gap: 20px;
+  }
+
+  .case-item {
+    padding-left: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .deepfake-cases-section {
+    flex-direction: column; /* Stack the image and text */
+    align-items: center;
+    padding: 20px 10px;
+    gap: 20px;
+  }
+
+  .image-section {
+    order: 1; /* Image appears above text on smaller screens */
+    justify-content: center;
+  }
+
+  .deepfake-image {
+    max-width: 300px; /* Further scale down the image */
+    margin-bottom: 20px;
+  }
+
+  .text-section {
+    order: 2;
+    align-items: center; /* Center text content */
+    gap: 15px;
+  }
+
+  .case-item {
+    padding-left: 0;
+  }
+
+  .case-item:hover {
+    padding-left: 0;
+  }
+
+  .case-item::before {
+    height: 0;
+    width: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .case-item:hover::before {
+    height: 3px;
+    width: 100%;
+  }
+
+  .case-item::after {
+    display: none;
+  }
+
+  .case-item h3 {
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .case-item p {
+    font-size: 14px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .deepfake-cases-section {
+    padding: 15px 5px;
+  }
+
+  .image-section {
+    margin-bottom: 15px;
+  }
+
+  .deepfake-image {
+    max-width: 250px; /* Scale down the image even more */
+  }
+
+  .case-item h3 {
+    font-size: 18px;
+  }
+
+  .case-item p {
+    font-size: 13px;
+    line-height: 1.4;
+  }
+
+  .case-item::before {
+    width: 5px;
+    height: 2px;
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
