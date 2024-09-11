@@ -1,5 +1,10 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  BrowserRouter,
+} from "react-router-dom";
 import Header from "./components/Header";
 import HeroSection from "./components/HeroSection";
 import ResultPage from "./components/ResultPage";
@@ -27,16 +32,21 @@ function HomePage() {
 
 function App() {
   return (
-    <Router>
+    <BrowserRouter>
       <div className="App">
         <Header />
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/results" element={<ResultPage />} />
+          <Route path="/stats" element={<Stats />} />
+          <Route path="/mission" element={<IntroMission />} />
+          <Route path="/news" element={<DeepFakeCases />} />
+          <Route path="/features" element={<WhatWeOffer />} />
+
+          <Route path="/contact" element={<OurTeam />} />
         </Routes>
         <Footer />
       </div>
-    </Router>
+    </BrowserRouter>
   );
 }
 
