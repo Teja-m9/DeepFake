@@ -1,11 +1,18 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import DeepShieldLogo from "../assets/DeepShieldLogo.png";
 import "./Header.css";
 
 function Header() {
   return (
     <header className="header" data-aos="fade-up">
-      <div className="logo">Logo</div>
+      <div className="logo">
+        <img
+          src={DeepShieldLogo}
+          alt=""
+          style={{ width: "60px", paddingTop: "10px" }}
+        />
+      </div>
       <nav>
         <ul>
           <li>

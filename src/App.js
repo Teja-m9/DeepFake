@@ -41,7 +41,6 @@ function App() {
           <Route path="/mission" element={<IntroMission />} />
           <Route path="/news" element={<DeepFakeCases />} />
           <Route path="/features" element={<WhatWeOffer />} />
-
           <Route path="/contact" element={<OurTeam />} />
         </Routes>
         <Footer />
